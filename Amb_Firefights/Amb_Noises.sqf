@@ -1,6 +1,7 @@
 // Add ambient firefights sounds for immersion
-// insert this into initPlayerLocal -> [] execVM "scripts\immersion\Amb_Firefights\Amb_Noises.sqf";
 // due to being client-side, might generate different positions of firefight, firefight sounds and firefights occurence(One player might be playing sound and others not)
+
+// insert this into initPlayerLocal -> [] execVM "PATH_TO_THE_SCRIPT\Amb_Firefights\Amb_Noises.sqf";
 // Limited testing SP(Eden) and Dedicated(FASTER)
 
 private _cpbSoundList = 
