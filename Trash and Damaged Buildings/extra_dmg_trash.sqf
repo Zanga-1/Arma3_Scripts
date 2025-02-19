@@ -1,3 +1,11 @@
+// *** ALL credits to Crub and his Simple Apocalypse Environment ***
+// Check out the original script: https://steamcommunity.com/sharedfiles/filedetails/?id=3197087607
+// this is a heavily modified version of it and with lots of parts excluded from the original to my personal use
+
+// uses RHS and CUP Terrains CORE assets, but you can change and customize the _wreckClassNames(Wrecks) and _classNames(Trash) to whatever other objects you like
+// changes made based on Tanoa, might have to add classes in "forEach nearestTerrainObjects" on other maps
+// insert this into init.sqf -> [] execVM "PATH_TO_THE_SCRIPT\extra_dmg_trash.sqf";
+
 if (isServer) then {
     hint "Damaging objects...";
     diag_log "Damaging objects...";
