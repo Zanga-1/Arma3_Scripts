@@ -1,7 +1,10 @@
-// Add ambient firefights sounds for immersion
-// due to being client-side, might generate different positions of firefight, firefight sounds and firefights occurence(One player might be playing sound and others not)
+// *** CREDITS TO sizraide AND jakeplissken ***
+// ORIGINAL LINK: https://forums.bohemia.net/forums/topic/235827-ambient-sounds-script/
 
-// insert this into initPlayerLocal -> [] execVM "PATH_TO_THE_SCRIPT\Amb_Firefights\Amb_Noises.sqf";
+// Add ambient firefights sounds for immersion
+// Due to being client-side, might generate different positions of firefight, firefight sounds and firefights occurence(One player might be playing sound and others not)
+
+// Insert this into initPlayerLocal -> [] execVM "PATH_TO_THE_SCRIPT\Amb_Noises.sqf";
 // Limited testing SP(Eden) and Dedicated(FASTER)
 
 private _cpbSoundList = 
