@@ -1,5 +1,6 @@
 // Loot system for arma 3, limited testing in SP(Eden) and Dedicated(Using FASTER)
 // Insert this code into initServer.sqf
+// Works for players and AI, bodies are removed and replaced for crates
 
 [_this] spawn
 {
