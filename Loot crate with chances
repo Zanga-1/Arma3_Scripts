@@ -1,0 +1,158 @@
+// Loot system for arma 3, limited testing in SP(Eden) and Dedicated(Using FASTER)
+// Insert this code into initServer.sqf
+
+[_this] spawn
+{
+params["_unit"];
+addMissionEventHandler ["EntityKilled", 
+    {
+            params["_unit"];
+            if (_unit isKindOf "Man" || _unit isKindOf "CAManBase") then {
+            private _box = createVehicle ["Box_NATO_Wps_F", getPosATL _unit, [], 0, "CAN_COLLIDE"];
+            private _tomb = createVehicle ["Land_PlasticCase_01_small_olive_CBRN_f", getPosATL _unit, [], 0, "CAN_COLLIDE"];
+            clearWeaponCargoGlobal _box;
+            clearMagazineCargoGlobal _box;
+            clearItemCargoGlobal _box;
+            clearBackpackCargoGlobal _box;
+		
+			// Loot chance 3% weapons
+			{
+				private _chanceWeapon = random 100;
+				if (_chanceWeapon > 97) then {
+					_box addWeaponCargoGlobal [_x, 1];
+				};
+			} forEach (weapons _unit);
+
+			// Loot chance 10% vest items
+			{
+				private _chanceAssignedItems = random 100;
+				if (_chanceAssignedItems > 90) then {
+					_box addItemCargoGlobal [_x, 1];
+				};
+			} forEach (vestItems _unit);
+
+			// Loot chance 15% uniform items
+			{
+				private _chanceAssignedItems = random 100;
+				if (_chanceAssignedItems > 85) then {
+					_box addItemCargoGlobal [_x, 1];
+				};
+			} forEach (uniformItems _unit);
+
+			// Loot chance 5% uniform
+			private _uniform = uniform _unit;
+			if (!isNil "_uniform" && {_uniform != ""}) then {
+				if (random 100 > 95) then {
+					_box addItemCargoGlobal [_uniform, 1];
+				};
+			};
+
+			// Loot chance 5% vest
+			private _vest = vest _unit;
+			if (!isNil "_vest" && {_vest != ""}) then {
+				if (random 100 > 95) then {
+					_box addItemCargoGlobal [_vest, 1];
+				};
+			};
+
+			// Loot chance 1% for NVG
+			private _nvg = hmd _unit;
+			if (!isNil "_nvg" && {_nvg != ""}) then {
+				if (random 100 > 99) then {
+					_box addItemCargoGlobal [_nvg, 1];
+				};
+			};
+
+			// Loot chance 5% for headgear
+			private _headgear = headgear _unit;
+			if (!isNil "_headgear" && {_headgear != ""}) then {
+				if (random 100 > 95) then {
+					_box addItemCargoGlobal [_headgear, 1];
+				};
+			};
+
+			// Loot chance 3% for glasses
+			private _glasses = goggles _unit;
+			if (!isNil "_glasses" && {_glasses != ""}) then {
+				if (random 100 > 97) then {
+					_box addItemCargoGlobal [_glasses, 1];
+				};
+			};
+
+			// Loot chance 2% for binoculars
+			private _binoculars = binocular _unit;
+			if (!isNil "_binoculars" && {_binoculars != ""}) then {
+				if (random 100 > 98) then {
+					_box addItemCargoGlobal [_binoculars, 1];
+				};
+			};
+
+			// Loot chance 2% for GPS
+			private _gps = (assignedItems _unit) select {_x in ["ItemGPS"]};  
+			if (count _gps > 0) then {
+				if (random 100 > 98) then {
+					_box addItemCargoGlobal [_gps select 0, 1];
+				};
+			};
+
+			// Loot chance 10% for backpack items
+			{
+				private _chanceAssignedItems = random 100;
+				if (_chanceAssignedItems > 90) then {
+					_box addItemCargoGlobal [_x, 1];
+				};
+			} forEach (backpackItems _unit);
+
+			// Loot chance 7% backpack
+			private _backpack = backpack _unit;
+			if (!isNil "_backpack" && {_backpack != ""}) then {
+				if (random 100 > 93) then {
+					_box addItemCargoGlobal [_backpack, 1];
+				};
+			};
+
+			// Loot chance 5% for primary weapon attachments
+			{
+				if (random 100 > 95) then {
+					_box addItemCargoGlobal [_x, 1];
+				};
+			} forEach (primaryWeaponItems _unit);
+
+			// Loot chance 5% for secondary weapon attachments
+			{
+				if (random 100 > 95) then {
+					_box addItemCargoGlobal [_x, 1];
+				};
+			} forEach (secondaryWeaponItems _unit);
+
+			// Loot chance 5% for handgun attachments
+			{
+				if (random 100 > 95) then {
+					_box addItemCargoGlobal [_x, 1];
+				};
+			} forEach (handgunItems _unit);
+			
+            deleteVehicle _unit;
+            hideObjectGlobal _box;
+            [_tomb, ["Loot", {_this select 1 action ["Gear", _this select 3]}, _box, 1000, true, true, "", "true", 2]] remoteExec ["addAction", 0, _tomb];
+			
+			// Delete tomb and box after 300 seconds or if no player within 1km
+            _tomb spawn {
+                private _startTime = time;
+                while {time - _startTime < 300 && {count (allPlayers select {(_x distance _this) < 1000}) > 0}} do {
+                    sleep 5;
+                };
+                deleteVehicle _this;
+            };
+            _box spawn {
+                private _startTime = time;
+                while {time - _startTime < 300 && {count (allPlayers select {(_x distance _this) < 1000}) > 0}} do {
+                    sleep 5;
+                };
+                deleteVehicle _this;
+            };
+			
+            };
+        }];
+    };
+ 
