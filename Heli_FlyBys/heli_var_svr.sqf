@@ -1,4 +1,4 @@
-/* heli_ambient_server.sqf - Ambient Helicopter Spawner (Server-side) */
+/* heli_var_svr.sqf - Ambient Helicopter Spawner (Server-side) */
 
 private _AmbiHeli = {
     while {true} do {
