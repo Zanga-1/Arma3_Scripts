@@ -1,5 +1,6 @@
 /* heli_var_svr.sqf - Ambient Helicopter Spawner (Server-side) */
-// updates variables server-side to offload work from client, them broadcast them to the connected players with a 5 second window to fetch them
+// updates variables server-side to offload work from client, them broadcast them to the connected players with a 5 second window to fetch them, JIP may miss the window
+// the variables even thought equal to all receivers, might generate different in-game visualization due to the AI pathing during the flight
 // limited testing in SP(Eden) and Dedicated(FASTER)
 // Uses RHS helicopters but you can change to whatever other you want by changin the classes in _heliClasses
 // insert [] execVM "PATH_TO_THE_SCRIPT\heli_var_svr.sqf"; into init.sqf
