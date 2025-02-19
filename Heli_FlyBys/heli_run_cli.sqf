@@ -1,4 +1,4 @@
-/* heli_ambient_client.sqf - Ambient Helicopter Spawner (Client-side) */
+/* heli_run_cli.sqf - Ambient Helicopter Spawner (Client-side) */
 
 runHeliFlyby = {
     while {true} do {
