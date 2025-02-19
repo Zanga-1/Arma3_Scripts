@@ -1,4 +1,7 @@
 /* heli_var_svr.sqf - Ambient Helicopter Spawner (Server-side) */
+// updates variables server-side to offload work from client, them broadcast them to the connected players with a 5 second window to fetch them
+// limited testing in SP(Eden) and Dedicated(FASTER)
+// Uses RHS helicopters but you can change to whatever other you want by changin the classes in _heliClasses
 
 private _AmbiHeli = {
     while {true} do {
