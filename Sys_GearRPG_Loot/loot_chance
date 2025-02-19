@@ -1,4 +1,7 @@
 // Loot system for arma 3, limited testing in SP(Eden) and Dedicated(Using FASTER)
+// Replace bodies with crates which will receive the unit gear
+// The gear is placed if the random number is above the set threshold
+
 // Insert this code into initServer.sqf
 // Works for players and AI, bodies are removed and replaced for crates
 
