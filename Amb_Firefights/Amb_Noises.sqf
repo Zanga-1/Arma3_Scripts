@@ -1,3 +1,8 @@
+// Add ambient firefights sounds for immersion
+// insert this into initPlayerLocal -> [] execVM "scripts\immersion\Amb_Firefights\Amb_Noises.sqf";
+// due to being client-side, might generate different positions of firefight, firefight sounds and firefights occurence(One player might be playing sound and others not)
+// Limited testing SP(Eden) and Dedicated(FASTER)
+
 private _cpbSoundList = 
 [
     "A3\Sounds_F\environment\ambient\battlefield\battlefield_firefight1.wss",
