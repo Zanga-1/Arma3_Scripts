@@ -7,7 +7,8 @@
 // 50% chance to spawn helis or jets
 // select a random connected player to use the position as basis and then run client-side for everyone 
 // insert this into init.sqf -> [] execVM "PATH_TO_THE_SCRIPT\air_var_svr.sqf";
-// also insert the ejection seat cleaner into initPlayerLocal -> [] execVM "PATH_TO_THE_SCRIPT\delete_ejection_seats.sqf";
+// also insert the ejection seat cleaner(Does not containt all seats of the game, only the rhs and one vanilla i was using, might need to insert more if you use other jets) 
+// into initPlayerLocal -> [] execVM "PATH_TO_THE_SCRIPT\delete_ejection_seats.sqf";
 
 private _AmbiAir = {
     while {true} do {
