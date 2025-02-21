@@ -9,7 +9,11 @@ ObjGen_Craters - Generate craters all over the map destroying objects within set
 ObjGen_DmgTrashWrecks - Generate Trash and wrecks within set distance from roads, also spawn heli wrecks in all helipads from the map;
 Sys_GearRPG_Loot - Script to replace bodies with crates which get filled by the killed unit if they meet the "loot chance";
 
-ObjGen_DmgTrashWrecks
+
+Credits:
+
+
+ObjGen_DmgTrashWrecks - 
 
 *** ALL credits to Crub and his Simple Apocalypse Environment ***
 
