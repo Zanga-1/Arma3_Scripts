@@ -24,8 +24,8 @@ deleteSeats = {
 // Execute the function client-side and repeat every 5 minutes
 [] spawn {
     while {true} do {
-		// Wait for 5 minutes (300 seconds)
-        sleep 10;
+	// Wait for 5 minutes (300 seconds)
+        sleep 300;
 	
         // Call the delete function
         [] call deleteSeats;
