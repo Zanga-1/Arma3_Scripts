@@ -1,4 +1,4 @@
-Hello,< br / >
+Hello,
 
 just sharing some scripts i made/modified to use in a personal mission, feel free to contact via Discord -> "zanga."<br>
 Really new into Arma 3 SQF so they could be better, if you end up improving it please share it so i can update and use them too :)
@@ -11,7 +11,7 @@ Sys_GearRPG_Loot - Script to replace bodies with crates which get filled by the 
 
 
 
-Credits:
+Credits:<br>
 
 
 ObjGen_DmgTrashWrecks - <br>
